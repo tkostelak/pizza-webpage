@@ -1,9 +1,15 @@
 //Business Logic
-function Pizza (pizzaSize, pizzaSauce, pizzaToppings) {
+var pizza = [];
+
+function Pizza (pizzaSize, pizzaSauce, pizzaToppings, pizzaPrice) {
   this.pizzaSize = pizzaSize;
   this.pizzaSauce = pizzaSauce;
   this.pizzaToppings = pizzaToppings;
-}
+  this.pizzaPrice = pizzaPrice;
+  };
+
+
+
 
 
 
@@ -11,11 +17,10 @@ function Pizza (pizzaSize, pizzaSauce, pizzaToppings) {
 //User Interface Logic
 $(document).ready(function() {
   var reset = function() {
-    var pizzaSize = $("#pizzaSize").val("0");
-    var pizzaSauce = $("#pizzaSauce").val("0");
-    var pizzaToppings = $("#pizzaToppings").val("0");
-    $("#pizzaResultsText").text("");
-    $("#resetPizza").hide();
+    var pizzaSize = $("#pizzaSize").val();
+    var pizzaSauce = $("#pizzaSauce").val();
+    var pizzaToppings = $("#pizzaToppings").val();
+
 
   }
 
@@ -24,15 +29,26 @@ $(document).ready(function() {
       var pizzaSize = $("#pizzaSize").val();
       var pizzaSauce = $("#pizzaSauce").val();
       var pizzaToppings = $("#pizzaToppings").val();
-      var pizzaPrice = 8;
 
-      var pizzaOrder = new Pizza(pizzaSize, pizzaSauce, pizzaToppings, pizzaPrice);
+      var pizzaPrice = 8;
 
       var pizzaOrderDisplayText = ("Here is the pizza you created");
 
-      $("#pizzaResultsText").text(pizzaOrderDisplayText + pizzaOrder);
-      $("#resetPizza").show();
+      Pizza.prototype.addPizza = function(Pizza) {
+      $("#pizzaResultsText").append('<div class="petContainer">' +
+          'pizzaOrderDisplayText' +
+          '<h3 class="pizzaSize">' + pizzaSize +
+          '<h3 class="pizzaSauce">' + pizzaSauce + '</h3>' +
+          '<h3 class="pizzaToppings">' + pizzaToppings + '</h3>' +
+          '<h3 class="pizzaPrice">' + pizzaPrice + '</h4>' +
+          '</div>'  );
+
+
+    });
+  });
 });
+
+
 
 $("#resetPizza").click(reset)
 reset();
