@@ -2,6 +2,6 @@
   display: none;
 }
 
-.paddingClass {
-  margin:  10px, 10px, 10px, 10px;
+.pizzaContainer {
+  border: solid;
 }
