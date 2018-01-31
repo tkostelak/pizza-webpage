@@ -1,14 +1,18 @@
 //Business Logic
 var pizzaOrderDisplayText = ("Here is the pizza you created: ");
-var pizzaToppingsArray = [];
 
-function Pizza (pizzaSize, pizzaSauce, pizzaToppingsArray) {
+var pizzaArray = [];
+
+function Pizza (pizzaSize, pizzaSauce, pizzaToppings) {
   this.pizzaSize = pizzaSize;
   this.pizzaSauce = pizzaSauce;
-  this.pizzaToppingsArray = pizzaToppingsArray;
+  this.pizzaToppings = pizzaToppings;
   };
 
 
+  Pizza.prototype.pizzaCost = function() {
+
+};
 //User Interface Logic
 $(document).ready(function() {
 
@@ -18,33 +22,10 @@ $(document).ready(function() {
       var pizzaSauce = $("#pizzaSauce").val();
       var pizzaToppings = $("#pizzaToppings").val();
 
-      var toppingsToArray = pizzaToppings.push(pizzaToppingsArray);
+      pizzaArray.push(new Pizza(pizzaSize, pizzaSauce, pizzaToppings));
 
       var pizzaPrice = 8;
 
-      Pizza.prototype.pizzaCost = function() {
-
-        if  (this.pizzaSize === 'Medium') {
-          pizzaPrice += 3;
-        } else if (this.pizzaSize === 'Large') {
-          pizzaPrice += 3;
-        } else if (this.pizzaSize === 'Extra-large' ) {
-          pizzaPrice += 3;
-        };
-
-        if (this.pizzaToppingsArray.length == 1) {
-          pizzaPrice += 2;
-        } else if (this.pizzaToppingsArray.length == 2) {
-          pizzaPrice += 4;
-        } else if (this.pizzaToppingsArray.length == 3) {
-          pizzaPrice += 6;
-        }  else if (this.pizzaToppingsArray.length == 4 || this.pizzaToppingsArray.length > 4 ) {
-          pizzaPrice += 8;
-        } else {
-
-        } return pizzaPrice;
-
-      };
 
         $("#pizzaResultsText").append('<div class="pizzaContainer">' + '<br>' +
             pizzaOrderDisplayText + '<br>' + '<br>' +
